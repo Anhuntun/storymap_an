@@ -1,0 +1,71 @@
+<!--
+	此示例下载自 https://echarts.apache.org/examples/zh/editor.html?c=line-smooth&lang=js&code=bdZNbtswFATgfYHeQTtvKEGPpPjjooueI8jCaI3WQBoHiVMkKHL3zlDiaNNF5In0-D6SFphcn26X6-Pwdfj7-dMwvH17u7wc1zwMt_en83E4fD_dzj-vz-8Ht97-cbqdjsPdwc-2jP7ghjUFpai0KCWlrFQObg21B5uVTGXWjTT2m0lukpvkJrlJbpKb6G4JcO8MucddEZ1FZ9FZdBadRWfRWXQWnUWjc6cRd0V0EV1EF9FFdBFdRBfRRXQRjc6dRtwV0VV0FV1FV9FVdBVdRVfRVTQ6dxpxVzrt504j7fc2GmmjkTYaaaORNhppo5E2mp03mnFXRJtoE22iTbSJNtEm2kSbaHTuNOKuiPaivWgv2ov2or1oL9qL9qLRudOIuyI6iA6ig-ggOogOooPoIDqIRudOI-6K6Cg6io6io-goOoqOoqPoKBqdO424K6Jxuijt9zqtowyp0zrKkDrdjrItdbodZvc8MT_aufn-v6P1z-nh9XzYi17Oz5czqu7Wqq1YR-7op-iGZfLO4jQ7P0_Z-TAV5_NUnU_T4qygxGwKjvfHZTKHha-xusSHC4a2Mgwwjg_sVJ1llPFnRsEY0HvMoIAamqH1jEoUYSDLMRCjZ9Rbwq8caHgGB6NbLWLCfYw0lKJqcZ4z8561ld2oZFTNhIwSh7Yui4tcqOfM4opitZ7rNvbksIIfoxf7CkfOoQ00lMNMLO_LND5gWaY04-FYuc7ChuhDtXJy2ypxadvbxhFsG8I1AIPI_WyrZE-IuBQ8LKjixqBvu7RpcfcDuqNT4iI8t4MzRWqbjwecEZeJxiBad66AAjYCBZUbz23CvDDc88E6adzHJzCsqQ3cE3evXdq-t0tZt7F9i21f0IcSvq3-zt1vf-71sj5cHs_9fwC8qr-v19uv43B7fj2v9z74gTf-48s_&enc=deflate
+	⚠ 请注意，该图表不是 Apache ECharts 官方示例，而是由用户代码生成的。请注意鉴别其内容。
+-->
+<!DOCTYPE html>
+<html lang="en" style="height: 100%">
+<head>
+  <meta charset="utf-8">
+</head>
+<body style="height: 100%; margin: 0">
+  <div id="container" style="height: 100%"></div>
+
+  
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+  
+  <!-- Uncomment this line if you want to dataTool extension
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5/dist/extension/dataTool.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use gl extension
+  <script type="text/javascript" src="https://echarts.apache.org/zh/js/vendors/echarts-gl/dist/echarts-gl.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to echarts-stat extension
+  <script type="text/javascript" src="https://echarts.apache.org/zh/js/vendors/echarts-stat/dist/ecStat.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to echarts-graph-modularity extension
+  <script type="text/javascript" src="https://echarts.apache.org/zh/js/vendors/echarts-graph-modularity/dist/echarts-graph-modularity.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use map
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@4.9.0/map/js/world.js"></script>
+  -->
+  <!-- Uncomment these two lines if you want to use bmap extension
+  <script type="text/javascript" src="https://api.map.baidu.com/api?v=3.0&ak=YOUR_API_KEY"></script>
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5/dist/extension/bmap.min.js"></script>
+  -->
+
+  <script type="text/javascript">
+    var dom = document.getElementById('container');
+    var myChart = echarts.init(dom, null, {
+      renderer: 'canvas',
+      useDirtyRect: false
+    });
+    var app = {};
+    
+    var option;
+
+    option = {
+  xAxis: {
+    type: 'category',
+    data: ['2015-2', '2015-3', '2015-4', '2015-5', '2015-6', '2015-7', '2015-8','2015-9','2015-10','2015-11', '2015-12', '2016-1', '2016-2', '2016-3', '2016-4', '2016-5', '2016-6', '2016-7', '2016-8', '2016-9', '2016-10', '2016-11', '2016-12', '2017-1', '2017-2', '2017-3', '2017-4', '2017-5', '2017-6', '2017-7', '2017-8', '2017-9', '2017-10', '2017-11', '2017-12', '2018-1', '2018-2', '2018-3', '2018-4', '2018-5', '2018-6', '2018-7', '2018-8', '2018-9', '2018-10', '2018-11', '2018-12', '2019-1', '2019-2', '2019-3', '2019-4', '2019-5', '2019-6', '2019-7', '2019-8', '2019-9', '2019-10', '2019-11', '2019-12', '2020-1', '2020-2', '2020-3', '2020-4', '2020-5', '2020-6', '2020-7', '2020-8', '2020-9', '2020-10', '2020-11', '2020-12', '2021-1', '2021-2', '2021-3', '2021-4', '2021-5', '2021-6', '2021-7', '2021-8', '2021-9', '2021-10', '2021-11', '2021-12', '2022-1', '2022-2', '2022-3', '2022-4', '2022-5', '2022-6', '2022-7', '2022-8', '2022-9', '2022-10', '2022-11', '2022-12', '2023-1', '2023-2', '2023-3', '2023-4', '2023-5', '2023-6', '2023-7', '2023-8', '2023-9', '2023-10', '2023-11', '2023-12', '2024-1', '2024-2', '2024-3', '2024-4', '2024-5', '2024-6', '2024-7', '2024-8', '2024-9', '2024-10', '2024-11', '2024-12', '2025-1', '2025-2', '2025-3', '2025-4', '2025-5', '2025-6', '2025-7', '2025-8', '2025-9', '2025-10']
+  },
+  yAxis: {
+    type: 'value'
+  },
+  series: [
+    {
+      data: [-2.4, 5.2,14.0,20.7,23.8,27.9,26.5,18.4,11.3,3.8,-5.1,-11.8,-5.9,6.4,15.0,18.4,26.1,23.3,20.9,17.8,7.8,0.0,-3.7,-7.2,-2.1,3.5,10.3,17.4,20.9,23.1,20.8,16.9,7.8,1.4,-5.0,-10.3,-5.6,7.5,11.1,16.5,21.3,22.8,19.3,13.7,7.6,0.2,-12.1,-10.4,-5.5,4.2,12.9,14.4,20.7,22.0,21.5,17.6,8.6,1.0,-4.8,-5.9,-1.4,4.2,11.7,16.6,21.1,23.3,21.2,15.9,7.1,-0.6,-9.7,-8.5,1.0,5.5,9.8,17.4,20.4,23.8,21.2,17.6,7.2,-1.3,-5.8,-6.4,-5.6,5.9,11.9,18.3,8.2,0.8,-8.8,-8.9,-1.9,6.3,9.2,16.0,22.5,24.2,22.9,17.2,10.6,0.7,-6.3,-6.4,-6.6,5.6,12.2,19.9,22.1,23.5,22.6,15.5,9.9,2.5,-8.6,-6.4,-8.6,-6.4,-4.4,-4.4,2.8,12.8,18.0,21.9,23.3,21.6,16.6,7.5
+      ],
+      type: 'line',
+      smooth: true
+    }
+  ]
+};
+
+    if (option && typeof option === 'object') {
+      myChart.setOption(option);
+    }
+
+    window.addEventListener('resize', myChart.resize);
+  </script>
+</body>
+</html>
